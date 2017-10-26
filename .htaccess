@@ -1,0 +1,10 @@
+#Deny from all
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteCond $1 !^(index.php|css|js|img|dist|bootstrap|_files|plugins|public|robots.txt)
+	RewriteRule ^(.*)$ /sound/index.php/$1 [L]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    ErrorDocument 404 sound/index.php
+</IfModule>
